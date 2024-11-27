@@ -1,5 +1,7 @@
+import type { Command } from "../types/command";
+
 export class GitClient {
-  run(command: { execute: () => void }) {
+  run(command: Command) {
     command.execute();
   }
 }

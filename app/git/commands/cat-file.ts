@@ -1,8 +1,9 @@
 import fs from "fs";
-import path from "path";
 import zlib from "zlib";
+import type { Command } from "../../types/command";
+import { getGitObjectPath } from "../../utils/file";
 
-export class CatFileCommand {
+export class CatFileCommand implements Command {
   flag: string;
   commitSHA: string;
 
@@ -14,16 +15,7 @@ export class CatFileCommand {
   execute() {
     switch (this.flag) {
       case "-p": {
-        const folder = this.commitSHA.slice(0, 2);
-        const file = this.commitSHA.slice(2);
-
-        const filePath = path.join(
-          process.cwd(),
-          ".git",
-          "objects",
-          folder,
-          file
-        );
+        const filePath = getGitObjectPath(this.commitSHA);
 
         if (!fs.existsSync(filePath)) {
           throw new Error(`Not a valid object name ${this.commitSHA}`);
