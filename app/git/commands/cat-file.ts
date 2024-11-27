@@ -33,7 +33,7 @@ export class CatFileCommand {
         const outputBuffer = zlib.inflateSync(
           fileContents as unknown as zlib.InputType
         );
-        const output = outputBuffer.toString();
+        const output = outputBuffer.toString().split("\x00")[1];
 
         process.stdout.write(output);
       }
