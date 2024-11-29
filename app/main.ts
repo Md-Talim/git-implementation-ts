@@ -1,7 +1,7 @@
-import { GitClient } from "./git/client";
-import { CatFileCommand } from "./git/commands/cat-file";
-import { HashObjectCommand } from "./git/commands/hash-object";
-import { initializeGitDirectory } from "./utils/git-init";
+import { GitClient } from "@/git/client";
+import { CatFileCommand } from "@/git/commands/cat-file";
+import { HashObjectCommand } from "@/git/commands/hash-object";
+import { initializeGitDirectory } from "@/utils/git-init";
 
 const args = process.argv.slice(2);
 const command = args[0];

@@ -1,7 +1,7 @@
+import type { Command } from "@/types/command";
+import { getGitObjectPath } from "@/utils/file";
 import fs from "fs";
 import zlib from "zlib";
-import type { Command } from "../../types/command";
-import { getGitObjectPath } from "../../utils/file";
 
 export class CatFileCommand implements Command {
   flag: string;

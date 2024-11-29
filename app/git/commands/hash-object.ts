@@ -1,8 +1,8 @@
+import type { Command } from "@/types/command";
 import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import zlib from "zlib";
-import type { Command } from "../../types/command";
 
 export class HashObjectCommand implements Command {
   flag: string;
